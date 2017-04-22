@@ -1,0 +1,42 @@
+{% extends 'complaint/base.html' %}
+
+{% block body %}
+
+<div class="container">
+  <h2>Ticket History   <a href="{% url 'complaint:index'  %}" class="btn btn-info" role="button">Home</a></h2>
+            
+  <table class="table table-striped">
+    <thead>
+      <tr>
+          <th>First Name</th> 
+          <th>Last Name</th>
+          <th>Device</th>
+          <th>Status</th>
+      </tr>
+
+              {% for tic in tics %}
+          <tr>
+            <td>{{tic.firstname}}</td>
+            <td>{{tic.lastname}}</td>
+            <td>{{tic.device}}</td>
+            <td>{{tic.status}} <a href="{% url 'complaint:update' tic.id %}" class="btn btn-primary btn-sm" role="button">Edit</a>
+            <form action="{% url 'complaint:del' tic.id %}" method="post" style="display: inline;">
+                                  {% csrf_token %}
+                                  <input type="hidden" name="tic_id" value="{{ tic.id }}" />
+                                  <button type="submit" class="btn btn-default btn-sm">
+                                      <span class="glyphicon glyphicon-trash"></span>
+                                  </button>
+                              </form>
+
+            </td>
+          </tr>
+          {% endfor %}
+    </thead>
+    <tbody>
+     
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}
+
