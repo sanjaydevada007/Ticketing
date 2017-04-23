@@ -3,8 +3,26 @@
 {% block body %}
 
 
-<a href="{% url 'complaint:detail' %}" class="btn btn-info" role="button">Ticket List</a>
-<a href="{% url 'complaint:create' %}" class="btn btn-info" role="button">Create Ticket</a>
+<!-- <a href="{% url 'complaint:detail' %}" class="btn btn-info" role="button">Ticket List</a>
+<a href="{% url 'complaint:create' %}" class="btn btn-info" role="button">Create Ticket</a> -->
+
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="text-center">Support Portal</h1>      
+    <p class="text-center">Use this portal to create the tickets and to check the tickets history.</p>
+  </div>
+
+  </br>
+  </br>
+  </br>
+  </br>
+
+  <div class="row">
+  	 <div class="col-sm-6"><a href="{% url 'complaint:detail' %}" class="btn btn-info btn-lg center-block" role="button">Ticket List</a></div>
+     <div class="col-sm-6"><a href="{% url 'complaint:create' %}" class="btn btn-info btn-lg center-block" role="button">Create Ticket</a></div>
+
+ 	 
+</div>
 
 
 
